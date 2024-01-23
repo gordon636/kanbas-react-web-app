@@ -1,0 +1,70 @@
+<div>
+    <form>
+        <select id="select-one-gradebook">
+            <option value="gradebook">Gradebook</option>
+            <option value="change-gradebook-view">Change Gradebook View</option>
+            <option value="traditional-gradebook">Tradition Gradebook</option>
+            <option value="individual-gradebook">Individual Gradebook</option>
+        </select>
+        <button type="button">Import</button>
+        <select id="select-one-export">
+            <option value="export">Export</option>
+            <option value="export-current-gradebook-view">Export Current Gradebook View</option>
+            <option value="export-entire-gradebook">Export Entire Gradebook</option>
+        </select>
+        <button type="button">Configure</button>
+        <br />
+
+        <label for="student-names-textfield"><b>Student Names</b></label>
+        <br />
+        <input id="student-names-textfield" placeholder="Search Students" /><br />
+
+        <label for="assignment-names-textfield"><b>Assignment Names</b></label>
+        <br />
+        <input id="assignment-names-textfield" placeholder="Search Assignments" /><br />
+
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Student Name</td>
+                <td style="text-align: center;">A1 SETUP <br /> Out of 100</td>
+                <td style="text-align: center;">A2 HTML <br /> Out of 100</td>
+                <td style="text-align: center;">A3 CSS <br /> Out of 100</td>
+                <td style="text-align: center;">A4 BOOTSTRAP <br /> Out of 100</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alice Wonderland</td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+            </tr>
+            <tr>
+                <td>Princess Leia</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+                <td style="text-align: center;">100</td>
+            </tr>
+            <tr>
+                <td>Luke Skywalker</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">100</td>
+            </tr>
+            <tr>
+                <td>Han Solo</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+                <td style="text-align: center;"><input value="100" type="number" /></td>
+                <td style="text-align: center;">100</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
