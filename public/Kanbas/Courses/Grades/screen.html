@@ -1,18 +1,96 @@
+<html>
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
 </head>
-<table>
-    <tbody>
-        <tr>
-            <td id="siteNav" valign="top">
-                <script>$("#siteNav").load("../../Navigation/index.html");</script>
-            </td>
-            <td id="courseNav" valign="top">
-                <script>$("#courseNav").load("../Navigation/index.html");</script>
-            </td>
-            <td id="gradesHome" valign="top">
+
+<body>
+    <div class="d-flex">
+        <div class="d-none d-md-block">
+            <ul class="wd-kanbas-navigation">
+                <li><a href="http://northeastern.edu">N</a></li>
+                <li><a href="/Kanbas/Account/Profile/screen.html">
+                        <i id="account-tab" class="far fa-user-circle"></i>Account</a></li>
+                <li><a href="/Kanbas/Dashboard/screen.html">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html">
+                        <i class="fa fa-book"></i>Courses</a>
+                </li>
+                <li><a href="#">
+                        <i class="fa fa-calendar"></i>Calendar</a>
+                </li>
+                <li><a href="#">
+                        <i class="fa fa-inbox"></i><br />Inbox</a>
+                </li>
+                <li><a href="#">
+                        <i class="far fa-clock"></i>History</a>
+                </li>
+                <li><a href="#">
+                        <i class="fab fa-youtube"></i>Studio</a>
+                </li>
+                <li><a href="#">
+                        <i class="fas fa-arrow-alt-circle-right"></i>Commons</a>
+                </li>
+                <li><a href="#">
+                        <i class="far fa-question-circle"></i><br />Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-none d-md-block">
+            <ul class="wd-navigation">
+                <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                <li><a href="#">Modules</a></li>
+                <li><a href="#">Piazza</a></li>
+                <li class="wd-active"><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                <li><a href="#">Quizzes</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Panopto Video</a></li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Discussions</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Announcements</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Pages</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Files</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Rubrics</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Outcomes</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Collaborations</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <a href="#">Syllabus</a>
+                    <i class="far fa-eye-slash text-secondary"></i>
+                </li>
+                <li><a href="/Kanbas/Courses/Settings/Details/screen.html">Settings</a></li>
+            </ul>
+        </div>
+        <div class="flex-fill">
+            <ul id="gradesHome" class="list-group wd-modules">
                 <script>$("#gradesHome").load("./index.html");</script>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            </ul>
+        </div>
+</body>
+
+</html>

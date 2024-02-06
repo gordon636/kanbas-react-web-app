@@ -1,103 +1,250 @@
-<div>
-    <input id="assignments-textfield" placeholder="Search for Assignments" />
-    <button type="button">Group</button>
-    <button type="button">Assignment</button>
-    <select id="edit-all-assignments-dropdown">
-        <option value="edit-assignment-dates">Edit Assignment Dates</option>
-        <option value="asignment-group-weights">Assignment Group Weights</option>
-        <option value="gradescope-1-3">Gradescope 1.3</option>
-    </select>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid pt-3">
+        <div class="row">
+            <div class="col">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-bars me-3 text-danger"></i>
+                        <li class="breadcrumb-item text-danger"><a href="/Kanbas/Courses/Home/screen.html"
+                                class="text-danger text-decoration-none">CS5610.126...</a></li>
+                        <li class="breadcrumb-item active text-secondary" aria-current="page">Assignments</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-light btn-sm rounded ps-3 pe-3 border"><i
+                        class="fas fa-glasses"></i> Student View</button>
+            </div>
+        </div>
+    </div>
 
     <hr />
 
-    <!-- Assignments -->
-    <b>Assignments 40% of Total</b>
-    <select id="edit-assignments-dropdown">
-        <option value="edit">Edit</option>
-        <option value="spped-grader">Speed Grader</option>
-        <option value="duplicate">Duplicate</option>
-        <option value="delete">Delete</option>
-        <option value="move-to">Moce To...</option>
-        <option value="send-to">Send To...</option>
-        <option value="copy-to">Copt To...</option>
-        <option value="share-to-commons">Share to Commons</option>
-    </select>
+    <div class="row p-4">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <input id="assignments-textfield" class="form-control w-50" placeholder="Search for Assignments" />
+                </div>
 
-    <ul>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A1 - ENV + HTML</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A2 - CSS + BOOTSTRAP</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A3 - JS + REACT</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A4 - STATE + REDUX</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A5 - NODE + SESSION</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">A6 - MONGO + MONGOOSE</a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-    </ul>
+                <div class="col-6 text-end">
+                    <button type="button" class="btn btn-light btn-sm rounded ps-3 pe-3 border"><i
+                            class="fas fa-plus"></i> Group</button>
+                    <button type="button" class="btn btn-danger btn-sm rounded ps-3 pe-3 border"><i
+                            class="fas fa-plus"></i> Assignment</button>
+                    <button type="button" class="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
+                        <i class="fa fa-ellipsis-v ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <!-- Quizzes -->
-    <b>Quizzes 10% of Total</b>
-    <select id="edit-quizzes-dropdown">
-        <option value="edit">Edit</option>
-        <option value="spped-grader">Speed Grader</option>
-        <option value="duplicate">Duplicate</option>
-        <option value="delete">Delete</option>
-        <option value="move-to">Moce To...</option>
-        <option value="send-to">Send To...</option>
-        <option value="copy-to">Copt To...</option>
-        <option value="share-to-commons">Share to Commons</option>
-    </select>
-    <ul>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Q1 - HTML</a> <br> <a href="#">Multiple Modules</a> |
-            Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Q2 - CSS</a> <br> <a href="#">Multiple Modules</a> |
-            Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Q3 - JS, ES6 </a> <br> <a href="#">Multiple
-                Modules</a> | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Q4 - NODE</a> <br> <a href="#"> Multiple Modules</a>
-            | Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Q5 - MONGO</a> <br> <a href="#">Multiple Modules</a>
-            | Not available yet</li>
-    </ul>
+        <hr />
+
+        <ul class="list-group wd-modules">
+            <li class="list-group-item">
+                <div>
+                    <i class="fa fa-ellipsis-v"></i> Assignments 40% of Total
+                    <span class="float-end">
+                        <span class="badge text-dark border border-dark rounded p-1">40% of Total</span>
+                        <i class="fa fa-plus ms-2"></i>
+                        <i class="fa fa-ellipsis-v ms-2"></i>
+                    </span>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A1
+                                            Setup</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 0 - SETUP - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A2
+                                            HTML</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 1 - HTML - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
 
 
-    <!-- Exams -->
-    <b>Exams 20% of Total</b>
-    <select id="edit-exams-dropdown">
-        <option value="edit">Edit</option>
-        <option value="spped-grader">Speed Grader</option>
-        <option value="duplicate">Duplicate</option>
-        <option value="delete">Delete</option>
-        <option value="move-to">Moce To...</option>
-        <option value="send-to">Send To...</option>
-        <option value="copy-to">Copt To...</option>
-        <option value="share-to-commons">Share to Commons</option>
-    </select>
-    <ul>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Midterm</a> <br> <a href="#">Multiple Modules</a> |
-            Not available yet</li>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Final</a> <br> <a href="#">Multiple Modules</a> | Not
-            available yet</li>
-    </ul>
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A3
+                                            CSS</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 2 - CSS - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
 
-    <!-- Project -->
-    <b>Project 30% of Total</b>
-    <select id="edit-project-dropdown">
-        <option value="edit">Edit</option>
-        <option value="spped-grader">Speed Grader</option>
-        <option value="duplicate">Duplicate</option>
-        <option value="delete">Delete</option>
-        <option value="move-to">Moce To...</option>
-        <option value="send-to">Send To...</option>
-        <option value="copy-to">Copt To...</option>
-        <option value="share-to-commons">Share to Commons</option>
-    </select>
-    <ul>
-        <li><a href="/Kanbas/Courses/Assignments/Edit/screen.html">Project</a> <br> <a href="#">Multiple Modules</a> |
-            Not available yet</li>
-    </ul>
 
-</div>
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A4
+                                            Bootstrap</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 3 - Boostrap - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A5
+                                            JavaScript</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 4 - JavaScript - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="float-start">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="far fa-edit text-success"></i>
+                                </span>
+                            </div>
+                            <div class="col-auto">
+                                <span>
+                                    <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
+                                        class="text-decoration-none text-dark"><b>A6
+                                            React</b></a><br>
+                                    <span class="text-muted small">
+                                        Week 5 - React - Week starting on Monday September 5th (9/5/2022) Module |
+                                        <br />
+                                        <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span class="float-end">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

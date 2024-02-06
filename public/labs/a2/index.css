@@ -69,13 +69,6 @@ p#id-selector-2 {
 }
 
 
-.some-selector {
-    border-width: 10px;
-    border-style: solid|dotted|dashed|double;
-    border-color: red | blue ...;
-}
-
-
 .wd-border-fat {
     border-width: 20px 30px 20px 30px;
 }
