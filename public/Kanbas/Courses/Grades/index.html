@@ -1,70 +1,119 @@
-<div>
-    <form>
-        <select id="select-one-gradebook">
-            <option value="gradebook">Gradebook</option>
-            <option value="change-gradebook-view">Change Gradebook View</option>
-            <option value="traditional-gradebook">Tradition Gradebook</option>
-            <option value="individual-gradebook">Individual Gradebook</option>
-        </select>
-        <button type="button">Import</button>
-        <select id="select-one-export">
-            <option value="export">Export</option>
-            <option value="export-current-gradebook-view">Export Current Gradebook View</option>
-            <option value="export-entire-gradebook">Export Entire Gradebook</option>
-        </select>
-        <button type="button">Configure</button>
-        <br />
+<html>
 
-        <label for="student-names-textfield"><b>Student Names</b></label>
-        <br />
-        <input id="student-names-textfield" placeholder="Search Students" /><br />
+<head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+</head>
 
-        <label for="assignment-names-textfield"><b>Assignment Names</b></label>
-        <br />
-        <input id="assignment-names-textfield" placeholder="Search Assignments" /><br />
+<body>
+    <div class="container-fluid p-3">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <i class="fas fa-bars me-3 text-danger"></i>
+                            <li class="breadcrumb-item text-danger"><a href="/Kanbas/Courses/Home/screen.html"
+                                    class="text-danger text-decoration-none">CS5610.126...</a></li>
+                            <li class="breadcrumb-item active text-secondary" aria-current="page">Grades</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <button type="submit">Apply Filters</button>
-    </form>
+    <hr />
 
-    <table border="1">
-        <thead>
-            <tr>
-                <td>Student Name</td>
-                <td style="text-align: center;">A1 SETUP <br /> Out of 100</td>
-                <td style="text-align: center;">A2 HTML <br /> Out of 100</td>
-                <td style="text-align: center;">A3 CSS <br /> Out of 100</td>
-                <td style="text-align: center;">A4 BOOTSTRAP <br /> Out of 100</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Alice Wonderland</td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-            </tr>
-            <tr>
-                <td>Princess Leia</td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-                <td style="text-align: center;">100</td>
-            </tr>
-            <tr>
-                <td>Luke Skywalker</td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;">100</td>
-            </tr>
-            <tr>
-                <td>Han Solo</td>
-                <td style="text-align: center;">100</td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-                <td style="text-align: center;"><input value="100" type="number" /></td>
-                <td style="text-align: center;">100</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="d-flex justify-content-end align-items-center gap-2 mb-3 p-3">
+        <button type="button" class="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
+            <i class="fas fa-file-import"></i> Import
+        </button>
+        <button type="button" class="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
+            <i class="fas fa-file-export"></i> Export <i class="fas fa-chevron-down"></i>
+        </button>
+        <button type="button" class="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
+            <i class="fas fa-cog"></i></i>
+        </button>
+    </div>
+
+    <div class="table-responsive">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search Students">
+                    <span class="input-group-text">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search Assignments">
+                    <span class="input-group-text">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="fw-bold">Student Name</th>
+                    <th scope="col" class="fw-normal text-center">A1 SETUP <br /> Out of 100</th>
+                    <th scope="col" class="fw-normal text-center">A2 HTML <br /> Out of 100</th>
+                    <th scope="col" class="fw-normal text-center">A3 CSS <br /> Out of 100</th>
+                    <th scope="col" class="fw-normal text-center">A4 BOOTSTRAP <br /> Out of 100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-danger">John Doe</td>
+                    <td class="text-center"><input type="text" value="100%" class="text-center" /></td>
+                    <td class="text-center">100%</td>
+                    <td class="text-center">99%</td>
+                    <td class="text-center">100%</td>
+                </tr>
+                <tr>
+                    <td class="text-danger">Brandon Guidelines</td>
+                    <td class="text-center"><input type="text" value="100%" class="text-center" /></td>
+                    <td class="text-center">100%</td>
+                    <td class="text-center">99%</td>
+                    <td class="text-center">100%</td>
+                </tr>
+                <tr>
+                    <td class="text-danger">Spruce Springclean</td>
+                    <td class="text-center">100%</td>
+                    <td class="text-center">99%</td>
+                    <td class="text-center"><input type="text" value="100%" class="text-center" /></td>
+                    <td class="text-center">100%</td>
+                </tr>
+                <tr>
+                    <td class="text-danger">Bartholomew Shoe</td>
+                    <td class="text-center">100%</td>
+                    <td class="text-center">99%</td>
+                    <td class="text-center"><input type="text" value="100%" class="text-center" /></td>
+                    <td class="text-center">100%</td>
+                </tr>
+                <tr>
+                    <td class="text-danger">Max Conversion</td>
+                    <td class="text-center">100%</td>
+                    <td class="text-center"><input type="text" value="100%" class="text-center" /></td>
+                    <td class="text-center">99%</td>
+                    <td class="text-center">100%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

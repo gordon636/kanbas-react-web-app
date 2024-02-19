@@ -1,4 +1,168 @@
-<div>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+</head>
+
+<body>
+    <div class="container-fluid pt-3">
+        <div class="row">
+            <div class="col">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <i class="fas fa-bars me-3 text-danger"></i>
+                        <li class="breadcrumb-item text-danger"><a href="/Kanbas/Courses/Home/screen.html"
+                                class="text-danger text-decoration-none">CS5610.126...</a></li>
+                        <li class="breadcrumb-item active text-danger" aria-current="page"><a
+                                href="/Kanbas/Courses/Assignments/screen.html"
+                                class="text-danger text-decoration-none">Assignments</a></li>
+                        <li class="breadcrumb-item active text-secondary" aria-current="page">A1 - ENV + ...</li>
+
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="d-flex justify-content-end align-items-center gap-2 mb-3 p-3">
+        <p class="text-success">
+            <i class="fas fa-check-circle"></i> Published
+        </p>
+        <button type="button" class="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
+            <i class="fa fa-ellipsis-v ms-2"></i>
+        </button>
+    </div>
+
+
+    <hr />
+
+    <form action="/Kanbas/Courses/Assignments/screen.html">
+
+        <div class="mb-3">
+            <label for="assignmentName" class="form-label">
+                Assignment Name</label>
+            <input type="text" class="form-control" id="assignmentName" placeholder="Assignment Name"
+                value="A1 - ENV + HTML">
+        </div>
+
+        <div class="mb-3">
+            <textarea class="form-control" id="textarea1"
+                rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="points" class="col-sm-2 col-form-label text-end">
+                Points</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="points" value="100">
+            </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+            <label for="points" class="col-sm-2 col-form-label text-end">
+                Assignment Group
+            </label>
+            <div class="col-sm-10">
+                <select class="form-select">
+                    <option selected>ASSIGNMENTS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+            <label for="points" class="col-sm-2 col-form-label text-end">
+                Display Grade as
+            </label>
+            <div class="col-sm-10">
+                <select class="form-select">
+                    <option selected>Percentage</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="r6" />
+                <label class="form-check-label" for="r6">
+                    Do not count this assignment towards the final grade</label>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="points" class="col-sm-2 col-form-label text-end">
+                Assign
+            </label>
+            <div class="col-sm-10 p-3">
+                <div class="row border border-dark">
+                    <div class="col-sm-10">
+                        <label for="assignTo"><b>Assign to</b></label>
+                        <select class="form-select" id="assignTo">
+                            <option>Open this select menu</option>
+                            <option selected value="1">Everyone</option>
+                            <option value="2">No one</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <label for="dueDate"><b>Due</b></label>
+                                <input type="date" class="form-control" id="dueDate" value="2023-09-18">
+                            </div>
+
+                            <div class="col-sm-5">
+                                <label for="availableFrom"><b>Available From</b></label>
+                                <input type="date" class="form-control" id="availableFrom">
+                            </div>
+
+                            <div class="col-sm-5">
+                                <label for="until"><b>Until</b></label>
+                                <input type="date" class="form-control" id="until" value="" placeholder=" ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="border border-dark bg-light text-center">
+                            <button type="button" class="btn btn-light btn-block"><i
+                                    class="fas fa-plus"></i>Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="mb-3 row">
+            <div class="col-sm-10 d-flex justify-content-between">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="notifyChange" />
+                    <label class="form-check-label" for="notifyChange">Notify users that this content has
+                        changed</label>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-light border">Cancel</button>
+                    <button type="submit" class="btn btn-danger border">Save</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
+
+</body>
+
+</html>
+
+
+<!-- <div>
     <form action="/Kanbas/Courses/Assignments/screen.html">
         <select id="grader-dropdown">
             <option value="speed-grader">Speed Grader</option>
@@ -100,4 +264,4 @@
         <button type="submit">Save</button>
 
     </form>
-</div>
+</div> -->
