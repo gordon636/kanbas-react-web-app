@@ -1,15 +1,30 @@
 import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
+import { db } from "../../../Database";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import {
+    addAssignment,
+    deleteAssignment,
+    updateAssignment,
+    selectAssignment,
+} from "../assignmentsReducer";
+import { KanbasState } from "../../../store";
+
+
 function AssignmentEditor() {
-    const { assignmentId } = useParams();
-    const assignment = assignments.find(
-        (assignment) => assignment._id === assignmentId);
     const { courseId } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const assignment = useSelector((state: KanbasState) =>
+        state.assignmentReducer.assignment);
+
     const handleSave = () => {
-        console.log("Actually saving assignment TBD in later assignments");
+        if (!assignment.course && courseId) {
+            dispatch(addAssignment({ ...assignment, course: courseId }));
+        } else {
+            dispatch(updateAssignment(assignment));
+        }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
     return (
@@ -19,9 +34,34 @@ function AssignmentEditor() {
                 <button type="button" className="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border"><FaEllipsisV /></button>
             </div>
             <hr />
-            <h2>Assignment Name</h2>
+            <h2>Name</h2>
             <input value={assignment?.title}
-                className="form-control mb-2" />
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, title: e.target.value }))}
+            />
+
+            <h4>Description</h4>
+            <input value={assignment?.description}
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, description: e.target.value }))} />
+
+            <h4>Points</h4>
+            <input type="number" value={assignment?.points}
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, points: e.target.value }))} />
+
+
+            <h4>Due Date</h4>
+            <input type="date" value={assignment?.dueDate}
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, dueDate: e.target.value }))} />
+
+
+            <h4>Available From</h4>
+            <input type="date" value={assignment?.availableFromDate}
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, availableFromDate: e.target.value }))} />
+
+
+            <h4>Available Until</h4>
+            <input type="date" value={assignment?.availableUntilDate}
+                className="form-control mb-2" onChange={(e) => dispatch(selectAssignment({ ...assignment, availableUntilDate: e.target.value }))} />
+
             <button onClick={handleSave} className="btn btn-success ms-2 float-end">
                 Save
             </button>

@@ -1,13 +1,47 @@
-import React from "react";
 import { FaCheckCircle, FaEdit, FaEllipsisV, FaPlus, FaPlusCircle } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAssignment, selectAssignment } from "./assignmentsReducer";
+import { KanbasState } from "../../store";
+import Modal from 'react-bootstrap/Modal';
+import { useState } from "react";
+
 function Assignments() {
     const { courseId } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const assignments = useSelector((state: KanbasState) =>
+        state.assignmentReducer.assignments);
     const assignmentList = assignments.filter(
         (assignment) => assignment.course === courseId);
+
+    const handleDelete = (assignmentId: string) => {
+        dispatch(deleteAssignment(assignmentId));
+        handleClose();
+    };
+
+    const [show, setShow] = useState<string | null>(null);
+
+    const handleClose = () => setShow(null);
+    const handleShow = (assignmentId: string) => setShow(assignmentId);
+
     return (
         <>
+            <Modal show={show !== null} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete Assignment!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to delete this assignment?</Modal.Body>
+                <Modal.Footer>
+                    <button type="button" className="btn btn-secondary p-2 m-2" onClick={handleClose}>
+                        No
+                    </button>
+                    <button type="button" className="btn btn-danger p-2 m-2" onClick={() => show ? handleDelete(show) : handleClose}>
+                        Yes
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="col-6">
@@ -16,7 +50,11 @@ function Assignments() {
 
                     <div className="col-6 text-end">
                         <button type="button" className="btn btn-light btn-sm rounded ps-3 pe-3 border"><FaPlus /> Group</button>
-                        <button type="button" className="btn btn-danger btn-sm rounded ps-3 pe-3 border"><FaPlus /> Assignment</button>
+                        <button type="button" className="btn btn-danger btn-sm rounded ps-3 pe-3 border"
+                            onClick={() => {
+                                dispatch(selectAssignment({}));
+                                navigate(`/Kanbas/Courses/${courseId}/Assignments/new`)
+                            }}><FaPlus /> Assignment</button>
                         <button type="button" className="btn btn-light btn-sm rounded pl-0 ps-3 pe-3 border">
                             <FaEllipsisV />
                         </button>
@@ -44,12 +82,16 @@ function Assignments() {
                                             <FaEdit style={{ color: "green" }} />
                                         </div>
                                         <div style={{ flexGrow: 305 }}>
-                                            <Link
-                                                to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`} style={{ color: "black", textDecoration: "none" }}>{assignment.title}</Link>
+                                            <Link onClick={() => dispatch(selectAssignment(assignment))}
+                                                to={`/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`} style={{ color: "black", textDecoration: "none" }}>{assignment.title ? assignment.title : "TBD"}</Link>
                                             <span className="text-muted small"><br />
-                                                <span style={{ color: "red" }}>Multiple Module</span> | <b>Due</b> Sep 18, 2022, at 11:59 pm | 100 pts
+                                                <span style={{ color: "red" }}>Multiple Module</span> | <b>Due</b> {assignment.dueDate ? assignment.dueDate : "No due date yet"} | {assignment.points ? assignment.points : "-"} pts
                                             </span>
                                         </div>
+                                        <button type="button" className="btn btn-danger p-2 m-2"
+                                            onClick={() => handleShow(assignment._id)}>
+                                            Delete
+                                        </button>
                                         <div style={{ flexGrow: 1 }}>
                                             <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
                                         </div>

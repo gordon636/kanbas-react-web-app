@@ -1,4 +1,4 @@
-import { assignments, courses } from "../../Kanbas/Database";
+import { db } from "../../Kanbas/Database";
 import { Link, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { HiChevronRight, HiMiniBars3 } from "react-icons/hi2";
 import { FaGlasses } from "react-icons/fa";
@@ -9,7 +9,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
     const { pathname } = useLocation();
@@ -28,7 +28,7 @@ function Courses() {
                         <Link to={`/Kanbas/Courses/${courseId}/Assignments`} style={{ textDecoration: "none", color: "red" }}>
                             <HiChevronRight />{breadcrumb}
                         </Link>
-                        <HiChevronRight /> {assignments.find((assignment) => assignment._id === pathArray[5])?.title}
+                        <HiChevronRight /> {db.assignments.find((assignment) => assignment._id === pathArray[5])?.title}
                     </>
                     :
                     <>
