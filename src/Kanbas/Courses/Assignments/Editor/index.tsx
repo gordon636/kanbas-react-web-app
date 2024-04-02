@@ -1,14 +1,12 @@
-import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { db } from "../../../Database";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
     addAssignment,
-    deleteAssignment,
     updateAssignment,
-    selectAssignment,
+    selectAssignment
 } from "../assignmentsReducer";
+import * as client from "../client";
 import { KanbasState } from "../../../store";
 
 
@@ -19,10 +17,12 @@ function AssignmentEditor() {
     const assignment = useSelector((state: KanbasState) =>
         state.assignmentReducer.assignment);
 
-    const handleSave = () => {
+    const handleSave = async () => {
         if (!assignment.course && courseId) {
+            const status = await client.createAssignment(courseId, assignment);
             dispatch(addAssignment({ ...assignment, course: courseId }));
         } else {
+            const status = await client.updateAssignment(assignment);
             dispatch(updateAssignment(assignment));
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);

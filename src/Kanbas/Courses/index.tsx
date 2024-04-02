@@ -2,6 +2,8 @@ import { db } from "../../Kanbas/Database";
 import { Link, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { HiChevronRight, HiMiniBars3 } from "react-icons/hi2";
 import { FaGlasses } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -9,9 +11,20 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 
-function Courses({ courses }: { courses: any[]; }) {
+const API_BASE = process.env.REACT_APP_API_BASE;
+function Courses() {
     const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
+    const COURSES_API = `${API_BASE}/api/courses`;
+    const [course, setCourse] = useState<any>({ _id: "" });
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(
+            `${COURSES_API}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
     const { pathname } = useLocation();
     const pathArray = pathname.split("/");
     const breadcrumb = pathArray[4];

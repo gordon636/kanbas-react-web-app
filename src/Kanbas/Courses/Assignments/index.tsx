@@ -1,13 +1,23 @@
 import { FaCheckCircle, FaEdit, FaEllipsisV, FaPlus, FaPlusCircle } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment, selectAssignment } from "./assignmentsReducer";
+import { useEffect } from "react";
+import { deleteAssignment, selectAssignment, setAssignments } from "./assignmentsReducer";
 import { KanbasState } from "../../store";
 import Modal from 'react-bootstrap/Modal';
+import * as client from "./client";
 import { useState } from "react";
 
 function Assignments() {
     const { courseId } = useParams();
+    useEffect(() => {
+        if (courseId) {
+            client.findAssignmentsForCourse(courseId)
+                .then((modules) =>
+                    dispatch(setAssignments(modules))
+                );
+        }
+    }, [courseId]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const assignments = useSelector((state: KanbasState) =>
@@ -16,6 +26,7 @@ function Assignments() {
         (assignment) => assignment.course === courseId);
 
     const handleDelete = (assignmentId: string) => {
+        const status = client.deleteAssignment(assignmentId);
         dispatch(deleteAssignment(assignmentId));
         handleClose();
     };
